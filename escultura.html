@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edwin Morales — Escultura</title>
+<meta name="description" content="Edwin Morales — escultura en talla directa de piedra y madera. Obras, materiales y contacto para encargos y exposiciones.">
+<meta property="og:title" content="Edwin Morales — Escultura">
+<meta property="og:description" content="Escultor ancashino especializado en talla directa de piedra y madera. Descubre sus obras y contáctalo para encargos y exposiciones.">
+<meta property="og:image" content="img/arcangel (2).jpeg">
+<meta property="og:url" content="https://tu-dominio.com/">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' fill='%231C1C1B'/%3E%3Ctext x='12' y='17' font-size='11' fill='%23E2E2DE' text-anchor='middle' font-family='Georgia,serif'%3EEM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --stone:#B7AC9B;       /* Greige */
+    --stone-dark:#6A5D52;  /* Walnut */
+    --ink:#1C1C1B;         /* Onyx */
+    --muted:#6A5D52;       /* Walnut, texto secundario */
+    --accent:#979086;      /* Ash, líneas y estados */
+    --paper:#E2E2DE;       /* Stucco */
+  }
+  
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Raleway', sans-serif;
+    font-weight:400;
+    min-height:100vh;
+    display:flex; flex-direction:column;
+  }
+
+  h1,
+  h2,
+  .detail-title,
+  .obra-name{
+    font-family:'Cormorant Garamond', serif;
+  }
+  a{ color:inherit; }
+
+  /* ---- Nav centrada ---- */
+  nav{
+    padding:40px 24px 20px;
+    display:flex; justify-content:center;
+  }
+  nav ul{
+    list-style:none; display:flex; align-items:center; gap:28px;
+  }
+  nav li:not(:last-child)::after{
+    content:'·'; margin-left:28px; color:var(--accent);
+  }
+  nav a{
+    text-decoration:none; font-size:13px; letter-spacing:2.5px; text-transform:uppercase;
+    color:var(--muted); padding-bottom:6px; border-bottom:1px solid transparent;
+    transition:color .2s ease, border-color .2s ease;
+    background:none; border-top:none; border-left:none; border-right:none;
+    font-family:'Raleway', sans-serif; cursor:pointer;
+  }
+  nav a:hover{ color:var(--ink); }
+  nav a.active{ color:var(--ink); border-bottom-color:var(--ink); }
+
+  /* ---- Panels: solo uno visible a la vez ---- */
+  main{ flex:1; display:flex; align-items:flex-start; justify-content:center; padding:20px 24px 60px; }
+  .panel{ display:none; width:100%; max-width:640px; text-align:center; animation:fade .25s ease; margin-top:60px; }
+  .panel.wide{ max-width:900px; }
+  .panel.active{ display:block; }
+  @keyframes fade{ from{ opacity:0; transform:translateY(6px);} to{ opacity:1; transform:translateY(0);} }
+
+  /* ---- Perfil ---- */
+  #perfil{
+    max-width:900px;
+    text-align:left;
+  }
+
+  .perfil-grid{
+    display:grid;
+    grid-template-columns:340px 1fr;
+    gap:64px;
+    align-items:center;
+  }
+
+  .profile-photo{
+    width:100%;
+    aspect-ratio:4/5;
+    object-fit:cover;
+    display:block;
+    background:var(--stone);
+  }
+
+  #perfil h1{
+    font-size:clamp(38px, 5vw, 58px);
+    font-weight:400;
+    letter-spacing:-.8px;
+    line-height:1;
+    margin:0;
+  }
+
+  .role{
+    margin-top:16px;
+    font-size:11px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--accent);
+  }
+
+  .bio{
+    margin-top:30px;
+    font-size:16px;
+    line-height:1.8;
+    color:var(--muted);
+    max-width:520px;
+  }
+
+  .bio + .bio{
+    margin-top:14px;
+  }
+
+  .meta-line{
+    margin-top:30px;
+    padding-top:18px;
+    border-top:1px solid rgba(106,93,82,.25);
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--accent);
+  }
+
+  /* ---- Obras: grilla de imágenes ---- */
+  h2{
+    font-size:14px;
+    font-weight:500;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:36px;
+    text-align:center;
+    position:relative;
+  }
+
+  h2::after{
+    content:'';
+    display:block;
+    width:42px;
+    height:1px;
+    background:var(--accent);
+    margin:14px auto 0;
+    opacity:.65;
+  }
+  /* ---- Galería de obras ---- */
+
+  .obras-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:64px 30px;
+    text-align:left;
+  }
+
+  .obra-card{
+    display:block;
+    text-decoration:none;
+    cursor:pointer;
+  }
+
+  .obra-image-wrap{
+    position:relative;
+    overflow:hidden;
+    background:var(--stone);
+    aspect-ratio:1/1;
+  }
+
+  .obra-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:
+      transform .6s cubic-bezier(.2,.6,.2,1),
+      opacity .4s ease;
+  }
+
+/* Efecto sutil al pasar el cursor */
+  .obra-card:hover img{
+    transform:scale(1.035);
+    opacity:.88;
+  }
+
+  .obra-overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:flex-end;
+    justify-content:flex-end;
+    padding:18px;
+    background:linear-gradient(
+      to top,
+      rgba(28,28,27,.35),
+      transparent 45%
+    );
+    opacity:0;
+    transition:opacity .35s ease;
+  }
+
+  .obra-overlay span{
+    color:#fff;
+    font-size:10px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+  }
+
+  .obra-card:hover .obra-overlay{
+    opacity:1;
+  }
+
+  .obra-card .obra-name{
+    display:block;
+    margin-top:16px;
+    font-family:'Cormorant Garamond', serif;
+    font-size:20px;
+    font-weight:500;
+    letter-spacing:.1px;
+    line-height:1.1;
+  }
+
+  .obra-card .obra-name::after{
+    content:'';
+    display:block;
+    width:0;
+    height:1px;
+    background:var(--ink);
+    margin-top:7px;
+    transition:width .3s ease;
+  }
+
+  .obra-card:hover .obra-name::after{
+    width:28px;
+  }
+
+  /* ---- Detalle de obra ---- */
+  .detail-back{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:10px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:36px;
+    cursor:pointer;
+    text-decoration:none;
+    transition:color .25s ease;
+  }
+
+  .detail-back:hover{
+    color:var(--ink);
+  }
+  .detail-image{
+    width:100%;border:1px solid rgba(106,93,82,.25); max-width:460px; aspect-ratio:1/1; object-fit:cover;
+    margin:0 auto; display:block; background:var(--stone); cursor:zoom-in;
+  }
+  .lightbox{
+    position:fixed; inset:0; background:rgba(28,28,27,.94);
+    display:none; align-items:center; justify-content:center; z-index:100;
+    padding:32px; cursor:zoom-out;
+  }
+  .lightbox.active{ display:flex; }
+  .lightbox img{ max-width:min(90vw,760px); max-height:88vh; object-fit:contain; }
+  .detail-title{ margin-top:30px; font-size:28px; font-weight:300; }
+  .detail-meta{ margin-top:6px; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--accent); }
+  .detail-desc{
+    margin:22px auto 0; max-width:520px; font-size:16px; line-height:1.75; color:var(--muted);
+  }
+  .detail-gallery{
+    margin-top:40px; display:grid; grid-template-columns:repeat(auto-fit, minmax(120px,1fr)); gap:14px;
+  }
+  .detail-gallery img{ width:100%; aspect-ratio:1/1; object-fit:cover; display:block; background:var(--stone); cursor:pointer; }
+  .share-btn{
+    display:inline-block;
+    margin-top:42px;
+    padding:0 0 5px;
+    background:none;
+    border:none;
+    border-bottom:1px solid var(--accent);
+
+    color:var(--muted);
+    font-family:'Raleway',sans-serif;
+    font-size:10px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+
+    cursor:pointer;
+    transition:
+      color .25s ease,
+      border-color .25s ease;
+  }
+
+  .share-btn:hover{
+    color:var(--ink);
+    border-color:var(--ink);
+  }
+
+  .share-btn.copied{
+    color:var(--ink);
+    border-color:var(--ink);
+  }
+
+  /* ---- Contacto ---- */
+  .contact-list{ display:flex; flex-direction:column; gap:20px; align-items:center; }
+  .contact-list a{
+    text-decoration:none; font-size:19px; font-weight:300;
+    padding-bottom:3px; border-bottom:1px solid transparent;
+    transition:border-color .2s ease;
+  }
+  .contact-list a:hover{ border-color:var(--ink); }
+  .contact-intro{ color:var(--muted); font-size:16px; margin-bottom:34px; }
+  .contact-divider{
+    display:flex; align-items:center; gap:16px; margin:44px 0;
+    font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--accent);
+  }
+  .contact-divider::before,
+  .contact-divider::after{ content:''; flex:1; height:1px; background:rgba(106,93,82,.25); }
+
+  .contact-form{ display:flex; flex-direction:column; gap:22px; text-align:left; }
+  .form-field{ display:flex; flex-direction:column; gap:8px; }
+  .form-field label{
+    font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--accent);
+  }
+  .form-field input,
+  .form-field textarea{
+    font-family:'Raleway', sans-serif; font-size:15px; color:var(--ink);
+    background:transparent; border:none; border-bottom:1px solid var(--stone-dark);
+    padding:8px 2px; resize:vertical; transition:border-color .2s ease;
+  }
+  .form-field input:focus,
+  .form-field textarea:focus{ outline:none; border-color:var(--ink); }
+  .form-field textarea{ min-height:100px; }
+  .form-submit{
+    align-self:flex-start; margin-top:6px;
+    background:var(--ink); color:var(--paper); border:1px solid var(--ink);
+    font-family:'Raleway',sans-serif; font-size:12px; letter-spacing:1.5px;
+    text-transform:uppercase; padding:12px 26px; cursor:pointer;
+    transition:background .2s ease, color .2s ease;
+  }
+  .form-submit:hover{ background:transparent; color:var(--ink); }
+  .form-note{ font-size:12px; color:var(--accent); margin-top:-6px; }
+
+  footer{
+    padding:26px; text-align:center; font-size:11px; letter-spacing:1px; color:var(--accent);
+  }
+
+    @media (max-width:800px){
+    .obras-grid{
+      grid-template-columns:repeat(2, 1fr);
+      gap:48px 22px;
+    }
+  }
+
+  @media (max-width:560px){
+    nav ul{ gap:16px; flex-wrap:wrap; justify-content:center; }
+    nav li:not(:last-child)::after{ margin-left:16px; }
+    .obra{ grid-template-columns:1fr; gap:4px; }
+    .perfil-grid{
+      grid-template-columns:1fr;
+      text-align:center;
+    .obras-grid{
+      grid-template-columns:1fr;
+      gap:48px;
+    }
+
+    .obra-card .obra-name{
+      font-size:19px;
+    }
+    }
+    .profile-photo{
+      max-width:240px;
+      aspect-ratio:1/1;
+      margin:0 auto;
+    }
+    #perfil h1{
+      font-size:clamp(34px, 10vw, 46px);
+    }
+    .bio{
+      margin-left:auto;
+      margin-right:auto;
+      font-size:15px;
+    }
+    .meta-line{
+      display:inline-block;
+    }
+    .pull-quote{ text-align:center; }
+    .contact-form{ text-align:center; }
+    .form-field{ align-items:center; }
+    .form-submit{ align-self:center; }
+  .obras-grid{
+    grid-template-columns:1fr;
+    gap:48px;
+  }
+  }
+
+  :focus-visible{ outline:2px solid var(--ink); outline-offset:3px; }
+  @media (prefers-reduced-motion: reduce){ *{ animation:none !important; transition:none !important; } }
+img{
+  opacity:0;
+  transition:opacity .5s ease;
+}
+img.loaded{ opacity:1; }
+[data-skel]{
+  position:relative; background:var(--stone); overflow:hidden;
+}
+[data-skel]::after{
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
+  transform:translateX(-100%);
+  animation:skel-sweep 1.4s ease-in-out infinite;
+}
+[data-skel].loaded::after{ display:none; }
+
+@keyframes skel-sweep{
+  100%{ transform:translateX(100%); }
+}
+
+/* ---- WhatsApp flotante ---- */
+.whatsapp-float{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  width:52px;
+  height:52px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#1C1C1B;
+  color:var(--paper);
+  border-radius:50%;
+  text-decoration:none;
+  z-index:90;
+  box-shadow:0 8px 24px rgba(0,0,0,.15);
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    box-shadow .25s ease;
+}
+
+.whatsapp-float:hover{
+  transform:translateY(-4px);
+  background:#6A5D52;
+  box-shadow:0 12px 30px rgba(0,0,0,.20);
+}
+
+.whatsapp-float svg{
+  width:23px;
+  height:23px;
+  fill:currentColor;
+}
+
+@media (max-width:560px){
+  .whatsapp-float{
+    right:18px;
+    bottom:18px;
+    width:48px;
+    height:48px;
+  }
+
+  .whatsapp-float svg{
+    width:21px;
+    height:21px;
+  }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a data-target="perfil" class="active">Perfil</a></li>
+    <li><a data-target="obras">Obras</a></li>
+    <li><a data-target="contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section class="panel active" id="perfil">
+    <div class="perfil-grid">
+      <img class="profile-photo" data-skel src="img/fotoperfil.png" alt="Edwin Morales">
+      <div>
+        <h1>EDWIN MORALES ROMERO</h1>
+        <p class="role">Escultura en piedra</p>
+        <p class="bio">Edwin Morales es un escultor ancashino cuya historia se basa en el esfuerzo, la perseverancia y el amor por el arte. Nació en una familia campesina quechua hablante. Descubrió su vocación durante su formación en el taller Don Bosco. Al comenzar su carrera en la carpintería, decidió seguir su verdadera pasión: la escultura.</p>
+        <p class="bio">Hoy transforma la piedra en obras únicas. Su trabajo refleja la dedicación, la disciplina y el compromiso con el arte. Estos valores han guiado su trayectoria personal y profesional.</p>
+        <p class="meta-line">Huaraz, Perú</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel wide" id="obras">
+    <h2>Obras</h2>
+    <div class="obras-grid">
+      <a class="obra-card" data-target="obra-1" data-nav-group="obras">
+        <div class="obra-image-wrap">
+          <img src="img/papa.png" alt="Busto del Papa Francisco">
+          <div class="obra-overlay">
+            <span>Ver obra →</span>
+          </div>
+        </div>
+
+        <span class="obra-name">Busto del Papa Francisco</span>
+      </a>
+      <a class="obra-card" data-target="obra-2" data-nav-group="obras">
+        <div class="obra-image-wrap">
+          <img src="img/estación.png" alt="Esculturas del Vía Crucis">
+          <div class="obra-overlay">
+            <span>Ver obra →</span>
+          </div>
+        </div>
+
+        <span class="obra-name">Esculturas del Vía Crucis</span>
+      </a>
+      <a class="obra-card" data-target="obra-3" data-nav-group="obras">
+        <div class="obra-image-wrap">
+          <img src="img/virgen 11.jpeg" alt="Virgen">
+          <div class="obra-overlay">
+            <span>Ver obra →</span>
+          </div>
+        </div>
+
+        <span class="obra-name">Virgen</span>
+      </a>
+      <a class="obra-card" data-target="obra-4" data-nav-group="obras">
+        <div class="obra-image-wrap">
+          <img src="img/s.familia (10).jpeg" alt="Sagrada Familia">
+          <div class="obra-overlay">
+            <span>Ver obra →</span>
+          </div>
+        </div>
+
+        <span class="obra-name">Sagrada Familia</span>
+      </a>
+      <a class="obra-card" data-target="obra-5" data-nav-group="obras">
+        <div class="obra-image-wrap">
+          <img src="img/piedad (2).jpeg" alt="La Piedad de Miguel Ángel">
+          <div class="obra-overlay">
+            <span>Ver obra →</span>
+          </div>
+        </div>
+
+        <span class="obra-name">La Piedad de Miguel Ángel</span>
+      </a>
+      <a class="obra-card" data-target="obra-6" data-nav-group="obras">
+        <div class="obra-image-wrap">
+          <img src="img/s.rosa (2).jpeg" alt="Santa Rosa de Lima">
+          <div class="obra-overlay">
+            <span>Ver obra →</span>
+          </div>
+        </div>
+
+        <span class="obra-name">Santa Rosa de Lima</span>
+      </a>
+      <a class="obra-card" data-target="obra-7" data-nav-group="obras">
+        <div class="obra-image-wrap">
+          <img src="img/arcangel (2).jpeg" alt="Arcángel San Miguel">
+          <div class="obra-overlay">
+            <span>Ver obra →</span>
+          </div>
+        </div>
+
+        <span class="obra-name">Arcángel San Miguel</span>
+      </a>
+      <a class="obra-card" data-target="obra-8" data-nav-group="obras">
+        <div class="obra-image-wrap">
+          <img src="img/minero (3).jpeg" alt="Minero">
+          <div class="obra-overlay">
+            <span>Ver obra →</span>
+          </div>
+        </div>
+
+        <span class="obra-name">Minero</span>
+      </a>
+      <a class="obra-card" data-target="obra-9" data-nav-group="obras">
+        <div class="obra-image-wrap">
+          <img src="img/vía (2).jpeg" alt="Jesús y María - Vía Crucis">
+          <div class="obra-overlay">
+            <span>Ver obra →</span>
+          </div>
+        </div>
+
+        <span class="obra-name">Jesús y María · Vía Crucis</span>
+      </a>
+      <a class="obra-card" data-target="obra-10" data-nav-group="obras">
+        <div class="obra-image-wrap">
+          <img src="img\bautizo (2).jpeg" alt="Bautizo de Jesús">
+          <div class="obra-overlay">
+            <span>Ver obra →</span>
+          </div>
+        </div>
+
+        <span class="obra-name">Bautizo de Jesús</span>
+      </a>
+      <a class="obra-card" data-target="obra-11" data-nav-group="obras">
+        <div class="obra-image-wrap">
+          <img src="img\ang (3).jpeg" alt="Virgen">
+          <div class="obra-overlay">
+            <span>Ver obra →</span>
+          </div>
+        </div>
+
+        <span class="obra-name">Baustizo de Jesú</span>
+      </a>
+      <a class="obra-card" data-target="obra-12" data-nav-group="obras">
+        <div class="obra-image-wrap">
+          <img src="img\cristo velado.png" alt="Cristo velado">
+          <div class="obra-overlay">
+            <span>Ver obra →</span>
+          </div>
+        </div>
+
+        <span class="obra-name">Cristo velado</span>
+      </a>
+      <a class="obra-card" data-target="obra-13" data-nav-group="obras">
+        <div class="obra-image-wrap">
+          <img src="img\mon señor ivo.jpeg" alt="Mons. Ivo Baldi">
+          <div class="obra-overlay">
+            <span>Ver obra →</span>
+          </div>
+        </div>
+
+        <span class="obra-name">Mons. Ivo Baldi</span>
+      </a>
+      <a class="obra-card" data-target="obra-14" data-nav-group="obras">
+        <div class="obra-image-wrap">
+          <img src="img\virgendelourdes.jpeg" alt="Nuestra Señora de Lourdes">
+          <div class="obra-overlay">
+            <span>Ver obra →</span>
+          </div>
+        </div>
+
+        <span class="obra-name">Nuestra señora de Lourdes</span>
+      </a>
+
+      <a class="obra-card" data-target="obra-15" data-nav-group="obras">
+        <div class="obra-image-wrap">
+          <img src="img\virgen.png" alt="Virgen">
+          <div class="obra-overlay">
+            <span>Ver obra →</span>
+          </div>
+        </div>
+
+        <span class="obra-name">Virgen</span>
+      </a>
+      <a class="obra-card" data-target="obra-16" data-nav-group="obras">
+        <div class="obra-image-wrap">
+          <img src="img\jesús ante pilato.jpeg" alt="Jesús ante Pilato">
+          <div class="obra-overlay">
+            <span>Ver obra →</span>
+          </div>
+        </div>
+
+        <span class="obra-name">Jesús ante Pilato</span>
+      </a>
+      <a class="obra-card" data-target="obra-17" data-nav-group="obras">
+        <div class="obra-image-wrap">
+          <img src="img\despojo (2).jpeg" alt="El despojo de Jesús">
+          <div class="obra-overlay">
+            <span>Ver obra →</span>
+          </div>
+        </div>
+
+        <span class="obra-name">El despojo de Jesús</span>
+      </a>
+      <a class="obra-card" data-target="obra-18" data-nav-group="obras">
+        <div class="obra-image-wrap">
+          <img src="img\mujeres.jpeg" alt="Jesús Consuela a las Mujeres de Jerusalén">
+          <div class="obra-overlay">
+            <span>Ver obra →</span>
+          </div>
+        </div>
+
+        <span class="obra-name">Jesús Consuela a las Mujeres de Jerusalén</span>
+      </a>
+      <a class="obra-card" data-target="obra-19" data-nav-group="obras">
+        <div class="obra-image-wrap">
+          <img src="img\beisbolista.jpeg" alt="Beisbolista">
+          <div class="obra-overlay">
+            <span>Ver obra →</span>
+          </div>
+        </div>
+
+        <span class="obra-name">Beisbolista</span>
+      </a>
+    </div>
+  </section>
+
+<section class="panel wide" id="obra-1" data-nav-group="obras">
+  <a class="detail-back" data-target="obras">← Volver a obras</a>
+  <img class="detail-image" src="img/papa.png" alt="Busto del Papa Francisco">
+  <h1 class="detail-title">Busto del Papa Francisco</h1>
+  <p class="detail-meta">Travertino · 2018 · Víctor Larco, Trujillo</p>
+  <div class="detail-gallery">
+    <img src="img/papa1.png" alt="Detalle del Busto del Papa Francisco">
+  </div>
+  <button class="share-btn" data-share="obra-1">Copiar enlace</button>
+</section>
+
+  <section class="panel wide" id="obra-2" data-nav-group="obras">
+    <a class="detail-back" data-target="obras">← Volver a obras</a>
+    <img class="detail-image" src="img/estación.png" alt="Esculturas del Vía Crucis">
+    <h1 class="detail-title">Esculturas del Vía Crucis</h1>
+    <div class="detail-gallery">
+      <img src="img/estacion_VII_1x1_fondo_blanco.png" alt="Estación VII">
+      <img src="img/estacion_VIII_1x1_fondo_blanco.png" alt="Estación VIII">
+      <img src="img/estacion_XIV_1x1_fondo_blanco.png" alt="ESTACIÓN XIV">
+    </div>
+    <button class="share-btn" data-share="obra-2">Copiar enlace</button>
+  </section>
+
+  <section class="panel wide" id="obra-3" data-nav-group="obras">
+    <a class="detail-back" data-target="obras">← Volver a obras</a>
+    <img class="detail-image" src="img/virgen 11.jpeg" alt="Virgen de Asunción">
+    <h1 class="detail-title">Virgen de Asunción</h1>
+    <div class="detail-gallery">
+      <img src="img/virgen (14).jpeg" alt="Virgen">
+      <img src="img/virgen (11).jpeg" alt="Virgen">
+      <img src="img/virgen (7).jpeg" alt="Virgen">
+      <img src="img/Virgen (5).jpeg" alt="Virgen">
+    </div>
+    <button class="share-btn" data-share="obra-3">Copiar enlace</button>
+  </section>
+
+  <section class="panel wide" id="obra-4" data-nav-group="obras">
+    <a class="detail-back" data-target="obras">← Volver a obras</a>
+    <img class="detail-image" src="img/s.familia (10).jpeg" alt="Sagrada Familia">
+    <h1 class="detail-title">Sagrada Familia</h1>
+    <div class="detail-gallery">
+      <img src="img/s.familia (2).jpeg" alt="[Detalle de la obra 4]">
+      <img src="img/s.familia (9).jpeg" alt="[Detalle de la obra 4]">
+      <img src="img/s.familia (8).jpeg" alt="[Detalle de la obra 4]">
+      <img src="img/s.familia (7).jpeg" alt="[Detalle de la obra 4]">
+    </div>
+    <button class="share-btn" data-share="obra-4">Copiar enlace</button>
+   </section>
+
+  <section class="panel wide" id="obra-5" data-nav-group="obras">
+    <a class="detail-back" data-target="obras">← Volver a obras</a>
+    <img class="detail-image" src="img/piedad (2).jpeg" alt="La Piedad de Miguel Ángel">
+    <h1 class="detail-title">La Piedad de Miguel Ángel</h1>
+    <div class="detail-gallery">
+      <img src="img/piedad (3).jpeg" alt="[Detalle de la obra 5]">
+      <img src="img/piedad.jpeg" alt="[Detalle de la obra 5]">
+    </div>
+    <button class="share-btn" data-share="obra-5">Copiar enlace</button>
+  </section>
+
+    <section class="panel wide" id="obra-6" data-nav-group="obras">
+    <a class="detail-back" data-target="obras">← Volver a obras</a>
+    <img class="detail-image" src="img/s.rosa (2).jpeg" alt="Santa Rosa de Lima">
+    <h1 class="detail-title">Santa Rosa de Lima</h1>
+    <div class="detail-gallery">
+      <img src="img/s.rosa (4).jpeg" alt="[Detalle de la obra 6]">
+      <img src="img/s.rosa (7).jpeg" alt="[Detalle de la obra 6]">
+      <img src="img/s.rosa (9).jpeg" alt="[Detalle de la obra 6]">
+      <img src="img/s.rosa (10).jpeg" alt="[Detalle de la obra 6]">
+    </div>
+    <button class="share-btn" data-share="obra-6">Copiar enlace</button>
+  </section>
+
+  <section class="panel wide" id="obra-7" data-nav-group="obras">
+    <a class="detail-back" data-target="obras">← Volver a obras</a>
+    <img class="detail-image" src="img/arcangel (2).jpeg" alt="Arcángel San Miguel">
+    <h1 class="detail-title">Arcángel San Miguel</h1>
+    <div class="detail-gallery">
+      <img src="img/arcangel (3).jpeg" alt="[Detalle de la obra 7]">
+      <img src="img/arcangel (5).jpeg" alt="[Detalle de la obra 7]">
+      <img src="img/arcangel (6).jpeg" alt="[Detalle de la obra 7]">
+    </div>
+    <button class="share-btn" data-share="obra-7">Copiar enlace</button>
+  </section>
+
+    <section class="panel wide" id="obra-8" data-nav-group="obras">
+    <a class="detail-back" data-target="obras">← Volver a obras</a>
+    <img class="detail-image" src="img/minero (3).jpeg" alt="Minero">
+    <h1 class="detail-title">Minero</h1>
+    <div class="detail-gallery">
+      <img src="img/minero (2).jpeg" alt="[Detalle de la obra 8]">
+      <img src="img/minero.jpeg" alt="[Detalle de la obra 8]">
+    </div>
+    <button class="share-btn" data-share="obra-8">Copiar enlace</button>
+  </section>
+
+  <section class="panel wide" id="obra-9" data-nav-group="obras">
+    <a class="detail-back" data-target="obras">← Volver a obras</a>
+    <img class="detail-image" src="img/vía (2).jpeg" alt="Jesús y María - Vía Crucis">
+    <h1 class="detail-title">Jesús y María - Vía Crucis</h1>
+    <div class="detail-gallery">
+      <img src="img/vía (5).jpeg" alt="[Detalle de la obra 9]">
+      <img src="img/vía.jpeg" alt="[Detalle de la obra 9]">
+    </div>
+    <button class="share-btn" data-share="obra-9">Copiar enlace</button>
+  </section>
+
+  <section class="panel wide" id="obra-10" data-nav-group="obras">
+    <a class="detail-back" data-target="obras">← Volver a obras</a>
+    <img class="detail-image" src="img\bautizo (2).jpeg" alt="Bautizo de Jesús">
+    <h1 class="detail-title">Bautizo de Jesús</h1>
+    <div class="detail-gallery">
+      <img src="img\bautizo (4).jpeg" alt="[Detalle de la obra 10]">
+      <img src="img\bautizo.jpeg" alt="[Detalle de la obra 10]">
+    </div>
+    <button class="share-btn" data-share="obra-10">Copiar enlace</button>
+  </section>
+
+  <section class="panel wide" id="obra-11" data-nav-group="obras">
+    <a class="detail-back" data-target="obras">← Volver a obras</a>
+    <img class="detail-image" src="img\ang (3).jpeg" alt="Virgen de Asunción">
+    <h1 class="detail-title">Virgen de asunción</h1>
+    <div class="detail-gallery">
+      <img src="img\ang (4).jpeg" alt="[Detalle de la obra 11]">
+      <img src="img\ang (2).jpeg" alt="[Detalle de la obra 11]">
+      <img src="img\ang.jpeg" alt="[Detalle de la obra 11]">
+      <img src="img\ang (5).jpeg" alt="[Detalle de la obra 11]">
+    </div>
+    <button class="share-btn" data-share="obra-11">Copiar enlace</button>
+  </section>
+
+<section class="panel wide" id="obra-12" data-nav-group="obras">
+    <a class="detail-back" data-target="obras">← Volver a obras</a>
+    <img class="detail-image" src="img\cristo velado.png" alt="Cristo velado">
+    <h1 class="detail-title">Cristo velado</h1>
+    <div class="detail-gallery">
+      <img src="img\cristo velado.png" alt="[Detalle de la obra 12]">
+    </div>
+    <button class="share-btn" data-share="obra-12">Copiar enlace</button>
+  </section>
+
+  <section class="panel wide" id="obra-13" data-nav-group="obras">
+    <a class="detail-back" data-target="obras">← Volver a obras</a>
+    <img class="detail-image" src="img\mon señor ivo.jpeg" alt="Mons. Ivo Baldi">
+    <h1 class="detail-title">Mons. Ivo Baldi</h1>
+    <div class="detail-gallery">
+      <img src="img\mon señor ivo (2).jpeg" alt="[Detalle de la obra 13]">
+    </div>
+    <button class="share-btn" data-share="obra-13">Copiar enlace</button>
+  </section>
+
+  <section class="panel wide" id="obra-14" data-nav-group="obras">
+    <a class="detail-back" data-target="obras">← Volver a obras</a>
+    <img class="detail-image" src="img\virgendelourdes.jpeg" alt="Nuestra señora de Lourdes">
+    <h1 class="detail-title">Nuestra señora de Lourdes</h1>
+    <div class="detail-gallery">
+      <img src="img/virgendelourdes (2).jpeg" alt="[Detalle de la obra 14]">
+      <img src="img/virgendelourdes (3).jpeg" alt="[Detalle de la obra 14]">
+    </div>
+    <button class="share-btn" data-share="obra-14">Copiar enlace</button>
+  </section>
+
+  <section class="panel wide" id="obra-15" data-nav-group="obras">
+    <a class="detail-back" data-target="obras">← Volver a obras</a>
+    <img class="detail-image" src="img\virgen.png" alt="Virgen">
+    <h1 class="detail-title">Virgen</h1>
+    <div class="detail-gallery">
+      <img src="img\Virgen (4).jpeg" alt="[Detalle de la obra 15]">
+      <img src="img\Virgen (2).jpeg" alt="[Detalle de la obra 15]">
+    </div>
+    <button class="share-btn" data-share="obra-15">Copiar enlace</button>
+  </section>
+
+  <section class="panel wide" id="obra-16" data-nav-group="obras">
+    <a class="detail-back" data-target="obras">← Volver a obras</a>
+    <img class="detail-image" src="img\jesús ante pilato.jpeg" alt="Jesús ante Pilato">
+    <h1 class="detail-title">Jesús ante Pilato</h1>
+    <div class="detail-gallery">
+      <img src="img\jesús ante pilato (2).jpeg" alt="[Detalle de la obra 16]">
+      <img src="img\jesús ante pilato (4).jpeg" alt="[Detalle de la obra 16]">
+    </div>
+    <button class="share-btn" data-share="obra-16">Copiar enlace</button>
+  </section>
+
+  <section class="panel wide" id="obra-17" data-nav-group="obras">
+    <a class="detail-back" data-target="obras">← Volver a obras</a>
+    <img class="detail-image" src="img\despojo (2).jpeg" alt="El despojo de Jesús">
+    <h1 class="detail-title">El despojo de Jesús</h1>
+    <div class="detail-gallery">
+      <img src="img\despojo.jpeg" alt="[Detalle de la obra 17]">
+      <img src="img\despojo (2).jpeg" alt="[Detalle de la obra 17]">
+    </div>
+    <button class="share-btn" data-share="obra-17">Copiar enlace</button>
+  </section>
+
+  <section class="panel wide" id="obra-18" data-nav-group="obras">
+    <a class="detail-back" data-target="obras">← Volver a obras</a>
+    <img class="detail-image" src="img\mujeres.jpeg" alt="Jesús Consuela a las Mujeres de Jerusalén">
+    <h1 class="detail-title">Jesús Consuela a las Mujeres de Jerusalén</h1>
+    <div class="detail-gallery">
+      <img src="img\mujeres.jpeg" alt="[Detalle de la obra 18]">
+    </div>
+    <button class="share-btn" data-share="obra-18">Copiar enlace</button>
+  </section>
+
+  <section class="panel wide" id="obra-19" data-nav-group="obras">
+    <a class="detail-back" data-target="obras">← Volver a obras</a>
+    <img class="detail-image" src="img\beisbolista.jpeg" alt="Beisbolista">
+    <h1 class="detail-title">Beisbolista</h1>
+    <div class="detail-gallery">
+      <img src="img\beisbolista.jpg" alt="[Detalle de la obra 19]">
+      <img src="img\beisbolista1.png" alt="[Detalle de la obra 19]">
+      <img src="img\beisbolista2.png" alt="[Detalle de la obra 19]">
+    </div>
+    <button class="share-btn" data-share="obra-19">Copiar enlace</button>
+  </section>
+
+  <section class="panel" id="contacto">
+    <h2>Contacto</h2>
+    <div class="contact-list">
+      <a href="mailto:moralesromeroedwinwalter@gmail.com">Correo</a>
+      <a href="https://www.instagram.com/edwinmorales.romero?igsi=ZXU4MTZpeGxrY21k" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://facebook.com/share/1GCfyDVAe2" target="_blank" rel="noopener">Facebook</a>
+    </div>
+
+  </section>
+</main>
+
+<div class="lightbox" id="lightbox"><img id="lightboxImg" src="" alt=""></div>
+
+<a
+  class="whatsapp-float"
+  href="https://wa.me/940748178"
+  target="_blank"
+  rel="noopener"
+  aria-label="Contactar por WhatsApp"
+  title="Contactar por WhatsApp"
+>
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M20.52 3.48A11.82 11.82 0 0 0 12.07 0C5.55 0 .24 5.31.24 11.83c0 2.08.54 4.11 1.57 5.9L.14 24l6.42-1.64a11.8 11.8 0 0 0 5.5 1.36h.01c6.52 0 11.83-5.31 11.83-11.83 0-3.16-1.23-6.13-3.38-8.41ZM12.07 21.7h-.01a9.84 9.84 0 0 1-5.02-1.37l-.36-.21-3.81.97 1.02-3.72-.23-.38a9.84 9.84 0 1 1 8.41 4.71Zm5.4-7.38c-.3-.15-1.78-.88-2.05-.98-.27-.1-.47-.15-.67.15-.2.3-.77.98-.95 1.18-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.78-1.68-2.08-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.21 5.09 4.5.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.78-.73 2.03-1.43.25-.7.25-1.3.17-1.43-.07-.12-.27-.2-.57-.35Z"/>
+  </svg>
+</a>
+<footer>© <span id="year"></span> Edwin Morales</footer>
+
+<script>
+function markLoaded(img){
+  function done(){
+    img.classList.add('loaded');
+    const skelParent = img.closest('[data-skel]');
+    if(skelParent) skelParent.classList.add('loaded');
+    if(img.hasAttribute('data-skel')) img.classList.add('loaded');
+  }
+  if(img.complete) done();
+  else img.addEventListener('load', done);
+}
+document.querySelectorAll('img').forEach(markLoaded);
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const navLinks = document.querySelectorAll('nav a');
+  const panels = document.querySelectorAll('.panel');
+
+  function activatePanel(id, updateHash){
+    const target = document.getElementById(id);
+    if(!target) return;
+    panels.forEach(p => p.classList.toggle('active', p.id === id));
+    const navKey = target.dataset.navGroup || id;
+    navLinks.forEach(l => l.classList.toggle('active', l.dataset.target === navKey));
+    if(updateHash !== false){
+      history.pushState(null, '', '#' + id);
+    }
+  }
+
+  document.querySelectorAll('[data-target]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      activatePanel(el.dataset.target);
+    });
+  });
+
+  // Abrir la sección correcta según el enlace compartido
+  const initialId = window.location.hash.replace('#', '');
+  if(initialId && document.getElementById(initialId)){
+    activatePanel(initialId, false);
+  }
+  window.addEventListener('popstate', () => {
+    const id = window.location.hash.replace('#', '') || 'perfil';
+    if(document.getElementById(id)) activatePanel(id, false);
+  });
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  document.querySelectorAll('.detail-image, .detail-gallery img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('active');
+    });
+  });
+  lightbox.addEventListener('click', () => lightbox.classList.remove('active'));
+
+  document.querySelectorAll('.share-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const url = window.location.origin + window.location.pathname + '#' + btn.dataset.share;
+      try{
+        await navigator.clipboard.writeText(url);
+      }catch(err){
+        // Respaldo si el navegador bloquea el portapapeles
+        const temp = document.createElement('textarea');
+        temp.value = url;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+      }
+      const original = btn.textContent;
+      btn.textContent = '¡Enlace copiado!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.classList.remove('copied');
+      }, 1800);
+    });
+  });
+
+</body>
+</html>
