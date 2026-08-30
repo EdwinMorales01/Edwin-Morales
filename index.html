@@ -84,6 +84,11 @@
     align-items:center;
   }
 
+  .profile-photos{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
   .profile-photo{
     width:100%;
     aspect-ratio:4/5;
@@ -485,17 +490,19 @@ img.loaded{ opacity:1; }
 
 <main>
   <section class="panel active" id="perfil">
-    <div class="perfil-grid">
-      <img class="profile-photo" data-skel src="img/fotoperfil.png" alt="Edwin Morales">
-      <div>
-        <h1>EDWIN MORALES ROMERO</h1>
-        <p class="role">Escultura en piedra</p>
-        <p class="bio">Edwin Morales es un escultor ancashino cuya historia se basa en el esfuerzo, la perseverancia y el amor por el arte. Nació en una familia campesina quechua hablante. Descubrió su vocación durante su formación en el taller Don Bosco. Al comenzar su carrera en la carpintería, decidió seguir su verdadera pasión: la escultura.</p>
-        <p class="bio">Hoy transforma la piedra en obras únicas. Su trabajo refleja la dedicación, la disciplina y el compromiso con el arte. Estos valores han guiado su trayectoria personal y profesional.</p>
-        <p class="meta-line">Huaraz, Perú</p>
-      </div>
+  <div class="perfil-grid">
+    <div>
+      <h1>EDWIN MORALES ROMERO</h1>
+      <p class="role">Escultura en piedra</p>
+      <p class="bio">Edwin Morales es un escultor ancashino cuya historia se basa en el esfuerzo, la perseverancia y el amor por el arte. Nació en una familia campesina quechua hablante. Descubrió su vocación durante su formación en el taller Don Bosco. Aunque inició su carrera en la carpintería, finalmente decidió enfocarse en su verdadera pasión, la escultura..</p>
+      <p class="bio">Hoy transforma la piedra en obras únicas. Su trabajo refleja la dedicación, la disciplina y el compromiso con el arte. Estos valores han guiado su trayectoria personal y profesional.</p>
+      <p class="meta-line">Huaraz, Perú</p>
     </div>
-  </section>
+    <div class="profile-photos">
+      <img class="profile-photo" data-skel src="img/perfil (2).png" alt="Edwin Morales">
+    </div>
+  </div>
+</section>
 
   <section class="panel wide" id="obras">
     <h2>Obras</h2>
@@ -1017,7 +1024,8 @@ document.querySelectorAll('img').forEach(markLoaded);
         btn.classList.remove('copied');
       }, 1800);
     });
-  });
+    });
 
+</script>
 </body>
 </html>
